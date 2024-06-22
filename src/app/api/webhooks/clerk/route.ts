@@ -47,7 +47,7 @@ export async function POST(req: Request) {
       console.error('Error verifying webhook:', err);
       return new Response('Error occured', {
         status: 400
-      })
+      });
     }
   
     // Do something with the payload
@@ -80,13 +80,12 @@ export async function POST(req: Request) {
       });
 
       return NextResponse.json({message:'User created successfully', user: newUser});
-  }
+      }
 
 
-
-    console.log(`Webhook with and ID of ${id} and type of ${eventType}`)
-    console.log('Webhook body:', body)
+    }
+    console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+    console.log('Webhook body:', body);
   
     return new Response('', { status: 200 });
-}
 }
